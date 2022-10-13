@@ -1,0 +1,412 @@
+
+/* reset */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+input, button {
+    background: none;
+    outline: none;
+    border: none;
+}
+
+
+/* custom */
+
+.player1color{
+    color: #0cc;
+}
+.player2color{
+    color: red;
+}
+.player3color{
+    color:blue;
+}
+.player4color{
+    color: orange;
+}
+
+
+body {
+    /* aside를 wrapper에 속하지 않게 만들면서 
+    aside에도 한번에 글자 속성이 위임되게 하기 위해서!!*/
+
+    /* 글자 크기 좀 줄였어요!! */
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Jua', sans-serif;
+    text-align: center;
+}
+
+.wrapper {
+    background: #fff;
+    /* width: 100%; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper #map {
+    /* 이걸 안주니까 td들 간 거리가 떨어진거처럼 나오네? */
+    border-collapse: collapse;
+    width: 800px;   /*1팀, 창 크기 조절시 크기가 줄어들지 않게 고정 값을 줌.*/
+    border: 6px solid #ff6347;
+    /* box-sizing: content-box; */
+}
+
+
+/* td칸에 배경색 넣기 */
+#map tr:nth-child(odd) td:nth-child(odd) {
+    background: #ff6347;
+}
+#map tr:nth-child(even) td:nth-child(even) {
+    background: #ff6347;
+}
+#map tr.hang2 td:last-child {
+    background: #ff6347;
+}
+
+#map td {
+    /* 첫 브라우저 화면이 100%인데 80px을 넘어가면 부루마블 판이 화면을 넘어가서 줄임. */
+    width: 80px;
+    height: 80px;
+    border: 6px solid #ff6347;
+
+    /* padding-top: 20px; */
+    /* box-sizing: border-box; */
+
+    position: relative;
+
+}
+
+
+#map tr.hang1 td.back {
+    background: no-repeat url(https://item.kakaocdn.net/do/2c8bd4eee7ab65a6dad93403311edf90616b58f7bf017e58d417ccb3283deeb3) center bottom / 60px;
+}
+#map tr.hang1 td.go {
+    background: no-repeat url(https://item.kakaocdn.net/do/d656a50c45c900cf6c99c3831c098df58f324a0b9c48f77dbce3a43bd11ce785) center bottom / 60px #ff6347;
+}
+#map tr.hang3 td.go-island {
+    background: no-repeat url(https://png.pngtree.com/element_origin_min_pic/17/04/09/2558c2e12831d08d1c6b2aa3b2255be5.jpg) center bottom / 60px;
+}
+#map tr.hang4 td.go {
+    background: no-repeat url(https://item.kakaocdn.net/do/5c7668788e937dacb19c9648cb49b3219f17e489affba0627eb1eb39695f93dd) center bottom / 65px #ff6347;
+}
+#map tr.hang4 td.back {
+    background: no-repeat url(https://item.kakaocdn.net/do/8aac9980723dfded79809992a4d1efaea88f7b2cbb72be0bdfff91ad65b168ab) center bottom / 70px;
+}
+#map tr.hang7 td.go {
+    background: no-repeat url(https://item.kakaocdn.net/do/5c7668788e937dacb19c9648cb49b32126397d82c8691bdabf557d1536959d9c) center bottom / 70px
+}
+#map tr.hang7 td.back {
+    background: no-repeat url(https://item.kakaocdn.net/do/d84248170c2c52303db27306a00fb861ac8e738cb631e72fdb9a96b36413984e) center bottom / 65px #ff6347;
+}
+#map tr.hang10 td.back {
+    background: no-repeat url(https://item.kakaocdn.net/do/2c8bd4eee7ab65a6dad93403311edf90a88f7b2cbb72be0bdfff91ad65b168ab) center bottom / 60px #ff6347;
+}
+#map tr.hang10 td.go {
+    background: no-repeat url(https://item.kakaocdn.net/do/9ac8ba2dd82efb5cad54d5c7451167a182f3bd8c9735553d03f6f982e10ebe70) center bottom / 60px;
+}
+#map tr.hang10 td:nth-child(6) {    
+    background: no-repeat url(https://item.kakaocdn.net/do/8aac9980723dfded79809992a4d1efaef604e7b0e6900f9ac53a43965300eb9a) center bottom / 60px #ff6347;
+}
+
+#map tr.hang10 td.island {
+    background: url(./img/island.jpg) no-repeat center bottom;
+}
+
+#map i {
+    font-size: 30px;
+    font-weight: 700;
+    display: block;
+    text-align: right;
+}
+#map span {
+    font-size: 30px;
+    font-weight: 700;
+    display: block;
+    text-align: right;
+
+    /* position: absolute;
+    bottom: 0; */
+    font-size: 40px ;
+    font-weight: bold;
+    
+    position: absolute;
+    left: 25%;
+    top: 55%;
+    transform : translate(-50% ,-50%) ;
+
+    animation: blink 0.7s step-end infinite;
+}
+
+#map span.player1position {
+    top:20%;
+}
+#map span.player2position {
+    top:20%;
+    left:80%;
+}
+#map span.player3position {
+    top:70%;
+}
+#map span.player4position {
+    top:70%;
+    left:75%;
+}
+
+
+/* 말이 깜빡이는 애니메이션 */
+@keyframes blink { 
+    50% { 
+        opacity: 0; 
+    } 
+} 
+
+
+#map #start {
+    background: #ff8c00;
+}
+
+#map #main-box {
+    background: #faf0e6;
+}
+
+#map #main-box .main-wrap {
+    /* background: #000; */
+    height: 100%; 
+}
+
+#map #main-box .main-wrap .main-title {
+    height: 200px;
+    /* background: yellow; */
+    text-align: center;
+    margin-bottom: 100px;
+    padding: 50px 0;
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+/* #dice는 숨어있다가 dice-button이 눌리면 나와야함. */
+#map #main-box .main-wrap #dice {
+    width: 150px;
+    height: 150px;
+    background-image: url('https://www.emojiall.com/images/60/blobmoji/emoji_u1f3b2.png');
+    background-size: cover;
+    margin: 0 auto;
+    margin-bottom: 150px;
+
+    /* display: none으로 하면 블록 영역 자체가 사라져서 밑에 버튼이 얘 자리를 차지함. */
+    opacity: 0;
+}
+
+
+/* #dice-button를 눌렀을 때 나타날 #dice 애니메이션 */
+/* 버튼 누르면 throw 클래스가 들어가서 애니메이션이 발동되게! */
+#map #main-box .main-wrap #dice.throw {
+    animation: throw-dice 1s linear forwards;
+}
+
+@keyframes throw-dice {
+    0% {
+        opacity: 1;
+        transform: rotate(0);
+    }
+    50% {
+        opacity: 1;
+        /* top: 100px; */
+        transform: rotateZ(-720deg) scale(1.5);
+    }
+    100% {
+        opacity: 0;
+        /* top: 300px; */
+        transform: rotate(0);
+    }
+
+}
+
+/* #map 끝 */
+
+
+/* aside꾸미기 */
+
+aside {
+    /* background: red; */
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    /* left: 80%; */
+    right: -55%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+}
+
+aside #guide {
+    /* background: grey; */
+    text-align: left;
+    font-size: 1.3em;
+    margin: 30px auto;
+}
+
+aside #guide #user-list {
+    font-size: 30px ;
+    font-weight: bold;
+    font-weight: 700;
+}
+
+aside #guide .lnr em {
+    color: #000;
+    font-weight: 500;
+    font-family: 'Jua', sans-serif;
+}
+
+aside #dice-button, #start-button {
+    background: #ee8eee;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 30px auto;
+    border-radius: 50%;
+    cursor: pointer;
+
+    /* 이걸 안 쓰면 #guide도 애니메이션이 적용됨 */
+    position: fixed;
+    z-index: 0; 
+
+    animation: movement 0.4s linear infinite alternate; padding-top: 0;
+}
+aside > #start-button {
+    background: red;
+    z-index: 1;
+}
+
+body .wrapper aside #whoDice {
+    /* background: red; */
+    margin-top: 220px;
+    text-align: left;
+    line-height: 40px;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+
+/* 주사위버튼이 움직이는 애니메이션 */
+@keyframes movement {
+	0% {
+        margin-top: 0px;
+    }
+	100% {
+        margin-top: 10px;
+    }
+}
+
+aside #guide #username {
+    /* background: green; */
+    margin-bottom: 10px;
+}
+
+aside #guide #username #username-text {
+    /* background: rgb(173, 172, 172); */
+    font-size: 18px;
+    height: 30px;
+    width: 150px;
+    margin: 10px 0;
+    border: 2px solid green;
+}
+
+aside #guide #username #username-btn {
+    font-size: 30px;
+    color: green;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+aside #guide #username #comAdd-btn {
+    cursor: pointer;
+}
+
+aside #guide #user {
+    margin-bottom: 10px;
+}
+
+aside #guide div {
+    /* background: orange; */
+    margin-bottom: 10px;
+}
+
+aside .hide {
+    /* opacity: 0; */
+    display: none;
+}
+
+
+/* 1팀, 이름입력창 검증시 애니메이션 */
+aside .move {
+    
+    animation: move 0.05s linear 10 alternate; margin-top: 0;
+}
+@keyframes move {
+    0% {
+        margin-top: 0px;
+        height: 40px;
+        
+    }
+	100% {
+        margin-top: 10px;
+        height: 30px;
+    }
+}
+
+
+/* 피니시박스 */
+
+#finish {
+    width: 600px;
+    background: red;
+
+    font-size: 80px;
+    font-weight: 400;
+    line-height: 90px;
+    text-align: center;
+
+    border: 2px solid #000;
+    border-radius: 20px;
+    padding: 50px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    opacity: 0; /* 점점 진해지면서 나타나게 하려면 투명도 0로 숨겨놔야한다. display:none 도 숨기기됨. */
+    z-index: -100; /* 숨겨진영역에 숫자 클릭이 안되므로 숫자판 밑으로 깔아야한다. */
+}
+
+#finish em{
+    color: yellow;
+}
+
+#finish.show {
+    animation: dropBox 1s forwards linear;
+    /* forwards : 애니메이션 종료위치에서 고정. 디폴트는 종료후 기존위치로 감. */
+    /* linear : 애니메이션 속도를 균일하게. 디폴트는 ease : 빠르게가다가 느리게 */
+}
+
+@keyframes dropBox {
+    0%{
+        transform: scale(1, 0.1) translate(-50%, -50%) ;
+    }
+    1%{
+        transform: scale(1, 0.1) translate(-50%, -50%);
+        z-index: 100;
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1, 1) translate(-50%, -50%) rotateY(720deg);
+        z-index: 100;
+    }
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>누가 먼저 도착하나</title>
+
+    <!-- reset css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+
+    <!-- linear icons -->
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/09617377c2.js" crossorigin="anonymous"></script>
+
+    <!-- font css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="main.css">
+
+    <!-- js -->
+    <script type="text/javascript" src="app.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div>
+        <table id="map">
+            <!-- 여기 자식으로 tbody가 생긴다는걸 기억해라 -->
+            <tr class="hang1">
+                <td id="start">
+                    <i class="fa-solid fa-circle-arrow-right"></i>
+                    START
+                </td>
+                <td></td>
+                <td></td>
+                <td class="back" data-value="2">뒤로 2칸</td>
+                <td></td>
+                <td></td>
+                <td class="go" data-value="3">앞으로 3칸</td>
+                <td></td>
+                <td></td>
+                <td class="turn">
+                    <i class="fa-solid fa-circle-arrow-down"></i></td>
+                </tr>
+            <tr class="hang2">
+                <td></td>
+                <td id="main-box" colspan="8" rowspan="8">
+                    <div class="main-wrap">
+                        <h1 class="main-title">주사위를 굴려 상대방보다 먼저 목적지에 도착하세요!!</h1>
+                        <div id="dice"></div>
+
+                        <!-- 여기 있던 dice-button 맨 밑에 aside로 뺐어요!! -->
+
+                        <!-- 설명문을 밑에 더 넣어줄까?? -->
+                        <!-- <p class="guide">
+                            1. 상대방과 번갈아가며 주사위를 던지세요.
+                            2. ~~~
+                        </p> -->
+                    </div>
+                </td>
+                <td></td>
+            </tr>
+            <tr class="hang3">
+                <td class="go-island">무인도 여행</td>
+                <td></td>
+                <!-- 말들을 여기 둬야 하나 -->
+            </tr>
+            <tr class="hang4">
+                <td class="back" data-value="1">뒤로 1칸</td>
+                <td class="go" data-value="1">앞으로 1칸</td>
+            </tr>
+            <tr class="hang5">
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="hang6">
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="hang7">
+                <td class="back" data-value="2">뒤로 2칸</td>
+                <td class="go" data-value="3">앞으로 2칸</td>
+            </tr>
+            <tr class="hang8">
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="hang9">
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="hang10">
+                <td class="turn"><i class="fa-solid fa-circle-arrow-up"></i></td>
+                <td class="back" data-value="5">뒤로 5칸</td>
+                <td class="go" data-value="3">앞으로 3칸</td>
+                <td></td>
+                <td></td>
+                <td class="go" data-value="5">앞으로 5칸</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="turn island"><i class="fa-solid fa-circle-arrow-left"></i>무인도</td>
+            </tr>
+
+        </table>
+        
+        <aside>
+            <div id="guide">
+                <div id="username">
+                    <p>이름을 입력하세요!<br>(COM포함 최대4인)</p>
+                    <input type="text" id="username-text" autocomplete="off">
+                    <button type="button" id="username-btn"><span class="lnr lnr-checkmark-circle"></span></button>
+                    <br>
+                    <button type="button" id="comAdd-btn">
+                        <em style= "font-size:15px; color:blue;">COM 추가</em><span class="lnr lnr-rocket" style= "font-size:18px; color:red;"></span>
+                    </button>
+                </div>
+                <div id="user-list">
+                    <!-- 1팀, 여기에 div로 username이 삽입됨. -->
+                </div>
+                
+            </div>
+            <div id="start-button" >게임 스타트~!</div>
+            <div id="dice-button">주사위 굴리기</div>
+            <div></div>
+        </aside>
+    </div>
+    <div id="finish" ></div>
+
+
+</body>
+
+</html>
