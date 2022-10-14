@@ -55,7 +55,7 @@
                 <td></td>
                 <td id="main-box" colspan="8" rowspan="8">
                     <div class="main-wrap">
-                        <h1 class="main-title">주사위를 굴려 상대방보다 먼저 목적지에 도착하세요!!</h1>
+                        <h1 class="main-title">주사위를 굴려 상대방보다 먼저 목적지에 도착하세요!!<br>게임에 참여할 플레이어를 입력하세요!</h1>
                         <div id="dice"></div>
 
                         <!-- 여기 있던 dice-button 맨 밑에 aside로 뺐어요!! -->
@@ -115,26 +115,54 @@
         
         <aside>
             <div id="guide">
-                <div id="username">
-                    <p>이름을 입력하세요!<br>(COM포함 최대4인)</p>
-                    <input type="text" id="username-text" autocomplete="off">
-                    <button type="button" id="username-btn"><span class="lnr lnr-checkmark-circle"></span></button>
-                    <br>
-                    <button type="button" id="comAdd-btn">
-                        <em style= "font-size:15px; color:blue;">COM 추가</em><span class="lnr lnr-rocket" style= "font-size:18px; color:red;"></span>
-                    </button>
-                </div>
                 <div id="user-list">
                     <!-- 1팀, 여기에 div로 username이 삽입됨. -->
-                </div>
-                
+                </div>      
             </div>
-            <div id="start-button" >게임 스타트~!</div>
-            <div id="dice-button">주사위 굴리기</div>
-            <div></div>
+            <div id="circle">
+                <div id="start-button" >게임 스타트~!</div>
+                <div id="dice-button">주사위 굴리기</div>
+                <div id="block-button">주사위 ing</div>
+            </div>
+            <div id="whoDice"></div> <!-- whoDice() 함수로 바뀌는 태그가 들어갈자리(마지막자리를 삭제하고 넣고 반복) -->
         </aside>
     </div>
-    <div id="finish" ></div>
+
+    <div id="userInput">
+        <div id="iconBox">
+            <p>캐릭터 선택</p>
+            <table>
+                <tbody>
+                    <tr id="icon">
+                        <td><img src="img/asian.png" alt=""></td>
+                        <td><img src="img/boy.png" alt=""></td>
+                        <td><img src="img/businessman.png" alt=""></td>
+                        <td><img src="img/tyroleanman.png" alt=""></td>
+                        <td><img src="img/tyroleangirl.png" alt=""></td>
+                        <td><img src="img/businesswoman.png" alt=""></td>
+                        <td><img src="img/follower.png" alt=""></td>
+                        <td><img src="img/girl.png" alt=""></td>
+                        <td><img src="img/woman.png" alt=""></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="username">
+            <p>이름을 입력하세요!<br><span>(COM포함 최대4인)</span></p>
+            <div>
+                <input type="text" id="username-text" autocomplete="off">
+                <button type="button" id="username-btn"><span class="lnr lnr-checkmark-circle"></span></button>
+            </div>
+            
+            <button type="button" id="comAdd-btn">
+                <em>플레이어에 PC 추가</em><span class="lnr lnr-rocket" style= "font-size:18px; color:red;"></span>
+            </button>
+        </div>
+    </div>
+    <div id="finish">
+        
+    </div>
 
 
 </body>
